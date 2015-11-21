@@ -1,0 +1,28 @@
+package com.hellomvp.client.place;
+
+import com.google.gwt.place.shared.*;
+
+public class GoodbyePlace extends Place {
+	
+	private String goodbyeName;
+	
+	public GoodbyePlace(String token){
+		this.goodbyeName = token;
+	}
+
+	public String getGoodbyeName(){
+		return goodbyeName;
+	}
+
+	public static class Tokenizer implements PlaceTokenizer<GoodbyePlace>{
+		@Override
+		public String getToken(GoodbyePlace place){
+			return place.getGoodbyeName();
+		}
+
+		@Override
+		public GoodbyePlace getPlace(String token){
+			return new GoodbyePlace(token);
+		}
+	}
+}
